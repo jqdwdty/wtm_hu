@@ -15,7 +15,7 @@ try({
   if (Sys.info()[["effective_user"]] %in% c("fabio", "favstats")) {
     ### CHANGE ME WHEN LOCAL!
     tf <- "30"
-    the_cntry <- "AL"
+    the_cntry <- "HU"
     print(paste0("TF: ", tf))
     print(paste0("cntry: ", the_cntry))
     
