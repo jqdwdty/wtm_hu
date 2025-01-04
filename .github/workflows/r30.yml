@@ -107,6 +107,7 @@ jobs:
             echo "Status file not found. Defaulting to no changes."
             RESUME_COUNT=0
             echo $RESUME_COUNT > resume_count_${TF}.txt
+          fi
         env:
           RESUME_COUNT: ${{ env.RESUME_COUNT }}
 
