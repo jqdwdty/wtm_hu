@@ -1,8 +1,4 @@
 
-# Error in retrieve_reports_data(the_cntry, to_get$timeframe, to_get$day) : 
-#   `timeframe` must be one of: 'yesterday', '7', '30', '90', or 'lifelong'.
-# Error : object 'latest_ds' not found
-
 try({
   
   outcome <- commandArgs(trailingOnly = TRUE)
@@ -584,6 +580,13 @@ log_final_statistics <- function(stage, tf, cntry, new_ds, latest_ds,
     should_continue <- update_workflow_schedule(F)
   } else {
     should_continue <- update_workflow_schedule(T)
+  }
+  
+  # Assuming `should_continue` indicates whether changes occurred
+  if (should_continue) {
+    writeLines("changes_detected", "status.txt")
+  } else {
+    writeLines("no_changes", "status.txt")
   }
   
   should_continue <- ifelse(should_continue, "✅ Yes", "❌ No")
